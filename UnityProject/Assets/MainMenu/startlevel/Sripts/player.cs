@@ -33,6 +33,7 @@ public class player : MonoBehaviour
     private float jumpForce;
 
     public Vector3 respawnPosition;
+    public FollowPlayer camera;
 
 	// Use this for initialization
 	void Start ()
@@ -90,7 +91,7 @@ public class player : MonoBehaviour
         if (isGrounded && jump)
         {
             isGrounded = false;
-            myrigidBody.AddForce(new Vector2(0, jumpForce));
+            myrigidBody.AddForce(new Vector2(myrigidBody.velocity.x, jumpForce));
         }
 
         myAnimator.SetFloat("speed", Mathf.Abs(horizontal));

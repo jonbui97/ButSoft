@@ -13,13 +13,8 @@ public class HUD : MonoBehaviour
 
     public player player;
 
-    public static float offsetY = 5;
-    public static float offsetZ = -7;
-    public Vector3 offset = new Vector3(0, offsetY, offsetZ);
-
     void Update()
     {
-        transform.position = player.transform.position + offset;
         HeartUI.sprite = HeartSprites[player.currHealth];
     }
 }

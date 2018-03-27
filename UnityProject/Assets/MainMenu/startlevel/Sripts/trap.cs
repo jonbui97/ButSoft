@@ -6,23 +6,13 @@ public class trap : MonoBehaviour
 {
 
     public player Player;
-
-    //void OnCollision2dEnter(Collision col)
-    //{
-    //    if(col.gameObject.tag == "Trap")
-    //        Player.TakeDamage(3);
-    //}
+    public int Damage;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Trap")
         {
-            Player.TakeDamage(5);
-            Debug.Log("lol");
+            Player.TakeDamage(Damage);
         }
-    }
-
-    void Update()
-    {
     }
 }
