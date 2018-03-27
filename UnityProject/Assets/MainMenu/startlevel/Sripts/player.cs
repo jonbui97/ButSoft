@@ -143,6 +143,7 @@ public class player : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+
         currHealth -= amount;
     }
 
@@ -151,7 +152,7 @@ public class player : MonoBehaviour
         if (other.tag == "Checkpoint")
         {
             respawnPosition = other.transform.position;
-            //respawnPosition.y += 0.5f;    jei pakelt reikia kur spawn'ina
+            //respawnPosition.y += 1.5f;  
             currHealth = maxHealth;
         }
     }
