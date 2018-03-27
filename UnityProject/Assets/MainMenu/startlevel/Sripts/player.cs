@@ -32,6 +32,8 @@ public class player : MonoBehaviour
     [SerializeField]
     private float jumpForce;
 
+    public Vector3 respawnPosition;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -40,6 +42,9 @@ public class player : MonoBehaviour
         myAnimator = GetComponent<Animator>();
 
         currHealth = maxHealth;
+
+        respawnPosition = transform.position;
+        
     }
 
     // Update is called once per frame
@@ -131,12 +136,22 @@ public class player : MonoBehaviour
 
     private void Die()
     {
-        // If you die, the scene restarts
-        Application.LoadLevel(Application.loadedLevel);
+        currHealth = maxHealth;
+        transform.position = respawnPosition;
     }
 
     public void TakeDamage(int amount)
     {
         currHealth -= amount;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Checkpoint")
+        {
+            respawnPosition = other.transform.position;
+            //respawnPosition.y += 0.5f;    jei pakelt reikia kur spawn'ina
+            currHealth = maxHealth;
+        }
     }
 }
