@@ -10,8 +10,9 @@ public class player : MonoBehaviour
 
     // Booleans
     private bool facingRight;
-    public bool isGrounded;
+    private bool isGrounded;
     private bool jump;
+    private bool canDoubleJump;
 
     // Stats
     [SerializeField]
@@ -32,8 +33,7 @@ public class player : MonoBehaviour
     [SerializeField]
     private float jumpForce;
 
-    public Vector3 respawnPosition;
-    public FollowPlayer camera;
+    public Vector3 respawnPoint;
 
 	// Use this for initialization
 	void Start ()
@@ -43,9 +43,7 @@ public class player : MonoBehaviour
         myAnimator = GetComponent<Animator>();
 
         currHealth = maxHealth;
-
-        respawnPosition = transform.position;
-        
+        respawnPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -78,20 +76,32 @@ public class player : MonoBehaviour
     // Reads inputs
     private void HandleInput()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.Space))
             jump = true;
     }
 
     // Calculates player's movement amounts
     private void handleMovement(float horizontal)
     {
-        if(isGrounded || airControl)
+        if (isGrounded || airControl)
             myrigidBody.velocity = new Vector2(horizontal * movementSpeed, myrigidBody.velocity.y);
 
+        // Jumping script
         if (isGrounded && jump)
         {
+            SounManagerScriptSFX.PlaySound("jump_takeoff");    // plays jump sound
+
             isGrounded = false;
-            myrigidBody.AddForce(new Vector2(myrigidBody.velocity.x, jumpForce * 1.5f));
+            myrigidBody.AddForce(new Vector2(0, jumpForce));
+            canDoubleJump = true;
+        }
+        else if (!isGrounded && canDoubleJump && jump)          // double jump script
+        {
+            SounManagerScriptSFX.PlaySound("jump_takeoff");    // if double jumped, plays jump sound again
+
+            canDoubleJump = false;
+            myrigidBody.velocity = new Vector2(myrigidBody.velocity.x, 0);
+            myrigidBody.AddForce(new Vector2(0, jumpForce));
         }
 
         myAnimator.SetFloat("speed", Mathf.Abs(horizontal));
@@ -138,21 +148,20 @@ public class player : MonoBehaviour
     private void Die()
     {
         currHealth = maxHealth;
-        transform.position = respawnPosition;
+        transform.position = respawnPoint;
     }
 
     public void TakeDamage(int amount)
     {
-
+        SounManagerScriptSFX.PlaySound("damage");
         currHealth -= amount;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Checkpoint")
+        if(other.tag == "Checkpoint")
         {
-            respawnPosition = other.transform.position;
-            //respawnPosition.y += 1.5f;  
+            respawnPoint = other.transform.position;
             currHealth = maxHealth;
         }
     }
