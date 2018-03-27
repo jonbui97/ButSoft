@@ -10,7 +10,7 @@ public class player : MonoBehaviour
 
     // Booleans
     private bool facingRight;
-    private bool isGrounded;
+    public bool isGrounded;
     private bool jump;
 
     // Stats
