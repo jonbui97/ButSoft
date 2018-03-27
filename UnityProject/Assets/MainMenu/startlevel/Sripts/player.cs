@@ -78,7 +78,7 @@ public class player : MonoBehaviour
     // Reads inputs
     private void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
             jump = true;
     }
 
@@ -91,7 +91,7 @@ public class player : MonoBehaviour
         if (isGrounded && jump)
         {
             isGrounded = false;
-            myrigidBody.AddForce(new Vector2(myrigidBody.velocity.x, jumpForce));
+            myrigidBody.AddForce(new Vector2(myrigidBody.velocity.x, jumpForce * 1.5f));
         }
 
         myAnimator.SetFloat("speed", Mathf.Abs(horizontal));

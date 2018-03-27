@@ -231,6 +231,7 @@
     <Compile Include="Assets\MainMenu\QuitOnClick.cs" />
     <Compile Include="Assets\MainMenu\SelectOnInput.cs" />
     <Compile Include="Assets\MainMenu\SettingsMenu.cs" />
+    <Compile Include="Assets\MainMenu\startlevel\Sripts\BetterJump.cs" />
     <Compile Include="Assets\MainMenu\startlevel\Sripts\Checkpoint.cs" />
     <Compile Include="Assets\MainMenu\startlevel\Sripts\HUD.cs" />
     <Compile Include="Assets\MainMenu\startlevel\Sripts\player.cs" />
