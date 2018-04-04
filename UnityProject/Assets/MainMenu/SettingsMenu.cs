@@ -8,8 +8,14 @@ public class SettingsMenu : MonoBehaviour {
     Resolution[] resolutions;
     public Dropdown resolutionDropdown;
     public AudioMixer audioMixer;
+    public Slider masterVolSlider; public Slider musicVolSlider;
+    public Slider sfxVolSlider;
     void Start()
     {
+        masterVolSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+        musicVolSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+        sfxVolSlider.value = PlayerPrefs.GetFloat("SfxVolume");
+
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
 
@@ -40,13 +46,27 @@ public class SettingsMenu : MonoBehaviour {
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("masterVolume", volume);
+        DontDestroyOnLoad(audioMixer);
     }
     public void SetMusicVolume(float volume)
     {
         audioMixer.SetFloat("musicVolume", volume);
+        DontDestroyOnLoad(audioMixer);
+    }
+    public void SetSoundEffectsVolume(float volume)
+    {
+        audioMixer.SetFloat("soundEffectsVolume", volume);
+        DontDestroyOnLoad(audioMixer);
     }
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+    }
+    void Update()
+    {
+        PlayerPrefs.SetFloat("MasterVolume", masterVolSlider.value);
+        PlayerPrefs.SetFloat("MusicVolume", musicVolSlider.value);
+        PlayerPrefs.SetFloat("SfxVolume", sfxVolSlider.value);
+
     }
 }
