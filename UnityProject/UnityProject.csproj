@@ -211,98 +211,101 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
-    <Reference Include="TextMeshPro-2017.3-1.0.56-Editor">
-      <HintPath>Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-1.0.56-Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="TextMeshPro-2017.3-1.0.56-Runtime">
-      <HintPath>Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-1.0.56-Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/minbut3/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>C:/Users/minbut3/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
+    <Reference Include="TextMeshPro-2017.3-1.0.56-Runtime">
+      <HintPath>Assets/Scenes materials/MainMenu/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-1.0.56-Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="TextMeshPro-2017.3-1.0.56-Editor">
+      <HintPath>Assets/Scenes materials/MainMenu/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-1.0.56-Editor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameObjects\Camera\FollowPlayer.cs" />
-    <Compile Include="Assets\GameObjects\DoubleJumpPickUp\DoubleJumpPickUp.cs" />
-    <Compile Include="Assets\MainMenu\LoadSceneOnClick.cs" />
-    <Compile Include="Assets\MainMenu\QuitOnClick.cs" />
-    <Compile Include="Assets\MainMenu\SelectOnInput.cs" />
-    <Compile Include="Assets\MainMenu\SettingsMenu.cs" />
-    <Compile Include="Assets\MainMenu\startlevel\Sripts\BetterJump.cs" />
-    <Compile Include="Assets\MainMenu\startlevel\Sripts\Checkpoint.cs" />
-    <Compile Include="Assets\MainMenu\startlevel\Sripts\HUD.cs" />
-    <Compile Include="Assets\MainMenu\startlevel\Sripts\player.cs" />
-    <Compile Include="Assets\MainMenu\startlevel\Sripts\trap.cs" />
-    <Compile Include="Assets\Scripts\ActiveStateToggler.cs" />
-    <Compile Include="Assets\Scripts\ApplicationManager.cs" />
-    <Compile Include="Assets\Scripts\ChangeColor.cs" />
-    <Compile Include="Assets\Scripts\DragMe.cs" />
-    <Compile Include="Assets\Scripts\DragPanel.cs" />
-    <Compile Include="Assets\Scripts\DropMe.cs" />
-    <Compile Include="Assets\Scripts\PanelManager.cs" />
-    <Compile Include="Assets\Scripts\ResizePanel.cs" />
-    <Compile Include="Assets\Scripts\ScrollDetailTexture.cs" />
-    <Compile Include="Assets\Scripts\ShowSliderValue.cs" />
-    <Compile Include="Assets\Scripts\TiltWindow.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\Benchmark01_UGUI.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\Benchmark02.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\Benchmark03.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\Benchmark04.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\CameraController.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\ChatController.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\EnvMapAnimator.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\ObjectSpin.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\ShaderPropAnimator.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\SimpleScript.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\SkewTextExample.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TeleType.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TextConsoleSimulator.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TextMeshProFloatingText.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TextMeshSpawner.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TMP_DigitValidator.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TMP_ExampleScript_01.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TMP_FrameRateCounter.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TMP_PhoneNumberValidator.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TMP_TextEventHandler.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TMP_TextInfoDebugTool.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TMP_TextSelector_A.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TMP_TextSelector_B.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TMP_UiFrameRateCounter.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\TMPro_InstructionOverlay.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\VertexColorCycler.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\VertexJitter.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\VertexShakeA.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\VertexShakeB.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\TextMesh Pro\examples &amp; extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\Other\GameObjects\Camera\FollowPlayer.cs" />
+    <Compile Include="Assets\Other\GameObjects\DoubleJumpPickUp\DoubleJumpPickUp.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\ActiveStateToggler.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\ApplicationManager.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\ChangeColor.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\DragMe.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\DragPanel.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\DropMe.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\KeyBind.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\LoadSceneOnClick.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\PanelManager.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\QuitOnClick.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\ResizePanel.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\ScrollDetailTexture.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\SelectOnInput.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\SettingsMenu.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\ShowSliderValue.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\Scripts\TiltWindow.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\Benchmark01.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\Benchmark01_UGUI.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\ObjectSpin.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\ShaderPropAnimator.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\SimpleScript.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\SkewTextExample.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TeleType.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TextConsoleSimulator.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TMP_ExampleScript_01.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TMP_FrameRateCounter.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TMP_TextInfoDebugTool.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TMP_UiFrameRateCounter.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\TMPro_InstructionOverlay.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\VertexShakeB.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\VertexZoom.cs" />
+    <Compile Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\Scripts\BetterJump.cs" />
+    <Compile Include="Assets\Scripts\Checkpoint.cs" />
+    <Compile Include="Assets\Scripts\HUD\HUD.cs" />
+    <Compile Include="Assets\Scripts\Player\player.cs" />
+    <Compile Include="Assets\Scripts\SoundManagerScriptSFX.cs" />
+    <Compile Include="Assets\Scripts\SounManagerScriptSFX.cs" />
+    <Compile Include="Assets\Scripts\trap.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\TextMesh Pro\examples &amp; extras\Fonts\Anton OFL.txt" />
-    <None Include="Assets\TextMesh Pro\examples &amp; extras\Fonts\Bangers - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\examples &amp; extras\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\examples &amp; extras\Fonts\NotoSans - License.txt" />
-    <None Include="Assets\TextMesh Pro\examples &amp; extras\Fonts\Oswald Bold - OFL.txt" />
+    <None Include="Assets\Scenes materials\MainMenu\Materials\UI-Default-No-Alpha.shader" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Fonts\Anton OFL.txt" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Fonts\Bangers - OFL.txt" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Fonts\NotoSans - License.txt" />
+    <None Include="Assets\Scenes materials\MainMenu\TextMesh Pro\examples &amp; extras\Fonts\Oswald Bold - OFL.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
