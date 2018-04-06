@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    // References
+    #region Referencees
+
     private Rigidbody2D myrigidBody;
     private Animator myAnimator;
 
-    // Booleans
+    #endregion
+
+    #region Booleans
+
     private bool facingRight;
     private bool isGrounded;
     private bool jump;
     private bool canDoubleJump;
 
-    // Stats
-    [SerializeField]
-    public int currHealth;
-    [SerializeField]
-    public int maxHealth = 5;
+    #endregion
+
+    #region Fields
 
     [SerializeField]
     private float movementSpeed;
     [SerializeField]
-    private Transform[] groundPoints;
+    public Transform groundPoints;
     [SerializeField]
     private float groundRadius;
     [SerializeField]
@@ -33,20 +35,37 @@ public class player : MonoBehaviour
     [SerializeField]
     private float jumpForce;
 
+    #endregion
+
+    #region Properties
+
+    [SerializeField]
+    public int currHealth;
+    [SerializeField]
+    public int maxHealth = 5;
+
     public Vector3 respawnPoint;
 
-	// Use this for initialization
-	void Start ()
+    #endregion
+
+    #region Unity methods
+
+    /// <summary>
+    /// Use this for initialization
+    /// </summary>
+    private void Start()
     {
         facingRight = true;
         myrigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
 
-        currHealth = maxHealth;
+        RestoreHealth(maxHealth);
         respawnPoint = transform.position;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
     private void Update()
     {
         HandleInput();
@@ -62,7 +81,9 @@ public class player : MonoBehaviour
         }
     }
 
-    // FixedUpdate is called once per frame. Frame amount is set.
+    /// <summary>
+    /// FixedUpdate is called once per frame. Frame amount is set.
+    /// </summary>
     private void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -71,16 +92,39 @@ public class player : MonoBehaviour
         handleMovement(horizontal);
         Flip(horizontal);
         ResetValues();
-	}
+    }
 
-    // Reads inputs
+    /// <summary>
+    /// When he hit checkpoint flag  
+    /// </summary>
+    /// <param name="other">
+    /// The other.
+    /// </param>
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Checkpoint")
+        {
+            respawnPoint = other.transform.position;
+            currHealth = maxHealth;
+        }
+    }
+
+    #endregion
+
+    #region Movement methods
+
+    /// <summary>
+    /// Reads inputs
+    /// </summary>
     private void HandleInput()
     {
         if (Input.GetKeyDown(KeyCode.Space))
             jump = true;
     }
 
-    // Calculates player's movement amounts
+    /// <summary>
+    /// Calculates player's movement amounts.
+    /// </summary>
     private void handleMovement(float horizontal)
     {
         if (isGrounded || airControl)
@@ -107,12 +151,18 @@ public class player : MonoBehaviour
         myAnimator.SetFloat("speed", Mathf.Abs(horizontal));
     }
 
+    /// <summary>
+    /// Resets values
+    /// </summary>
     private void ResetValues()
     {
         jump = false;
     }
 
-    // Flips player depending on which direction looking at
+    /// <summary>
+    /// Flips player depending on which direction looking at
+    /// </summary>
+    /// <param name="horizontal"></param>
     private void Flip(float horizontal)
     {
         if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
@@ -124,45 +174,62 @@ public class player : MonoBehaviour
         }
     }
 
-    // Checks if the player is standing on the ground or in the air.
+    /// <summary>
+    /// Checks if the player is standing on the ground or in the air.
+    /// </summary>
+    /// <returns></returns>
     private bool IsGrounded()
     {
         if (myrigidBody.velocity.y <= 0)
         {
-            foreach (Transform point in groundPoints)
-            {
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(point.position, groundRadius, whatIsGround);
+            Collider2D collider = Physics2D.OverlapCircle(groundPoints.position, groundRadius, whatIsGround);
 
-                for (int i = 0; i < colliders.Length; i++)
-                {
-                    if (colliders[i].gameObject != gameObject)
-                    {
-                        return true;
-                    }
-                }
+            if (collider.gameObject != gameObject)
+            {
+                return true;
             }
         }
         return false;
     }
 
+    #endregion
+
+    #region Health methods
+
+    /// <summary>
+    /// When currHealth reaches 0, player re-spawn and health restored  
+    /// </summary>
     private void Die()
     {
-        currHealth = maxHealth;
+        RestoreHealth(maxHealth);
         transform.position = respawnPoint;
     }
 
+    /// <summary>
+    /// when you got hit, health reduced and SFX played.
+    /// </summary>
+    /// <param name="amount"></param>
     public void TakeDamage(int amount)
     {
         SounManagerScriptSFX.PlaySound("damage");
         currHealth -= amount;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    /// <summary>
+    /// TO restore currHealth
+    /// </summary>
+    /// <param name="amount"></param>
+    public void RestoreHealth(int amount)
     {
-        if(other.tag == "Checkpoint")
+        if ((currHealth + amount) <= maxHealth)
         {
-            respawnPoint = other.transform.position;
-            currHealth = maxHealth;
+            currHealth += amount;
+        }
+        else
+        {
+            currHealth = amount;
         }
     }
+
+    #endregion
 }
