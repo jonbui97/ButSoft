@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class player : MonoBehaviour
     [SerializeField]
     private float movementSpeed;
     [SerializeField]
-    public Transform groundPoints;
+    public Transform groundPoint;
     [SerializeField]
     private float groundRadius;
     [SerializeField]
@@ -49,6 +50,13 @@ public class player : MonoBehaviour
     #endregion
 
     #region Unity methods
+    /// <summary>
+    /// It's restore last game stats and position
+    /// </summary>
+    private void Awake()
+    {
+        if (PlayerPrefs.GetString("Continue") == "Yes") { LoadData(); }
+    }
 
     /// <summary>
     /// Use this for initialization
@@ -60,7 +68,7 @@ public class player : MonoBehaviour
         myAnimator = GetComponent<Animator>();
 
         RestoreHealth(maxHealth);
-        respawnPoint = transform.position;
+        respawnPoint = this.transform.position;
     }
 
     /// <summary>
@@ -74,8 +82,7 @@ public class player : MonoBehaviour
         {
             currHealth = maxHealth;
         }
-
-        if (currHealth <= 0)
+        else if (currHealth <= 0)
         {
             Die();
         }
@@ -105,7 +112,9 @@ public class player : MonoBehaviour
         if (other.tag == "Checkpoint")
         {
             respawnPoint = other.transform.position;
+            respawnPoint.z = this.transform.position.z;
             currHealth = maxHealth;
+            SaveLoadManager.SavePlayer(this);
         }
     }
 
@@ -180,13 +189,12 @@ public class player : MonoBehaviour
     /// <returns></returns>
     private bool IsGrounded()
     {
-        if (myrigidBody.velocity.y <= 0)
+        if (this.myrigidBody.velocity.y <= 0)
         {
-            Collider2D collider = Physics2D.OverlapCircle(groundPoints.position, groundRadius, whatIsGround);
-
-            if (collider.gameObject != gameObject)
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(this.groundPoint.position, this.groundRadius, this.whatIsGround);
+            for (int i = 0; i < colliders.Length; i++)
             {
-                return true;
+                if (colliders[0].gameObject != this.gameObject) return true;
             }
         }
         return false;
@@ -232,4 +240,13 @@ public class player : MonoBehaviour
     }
 
     #endregion
+
+    private void LoadData()
+    {
+        PlayerData data = SaveLoadManager.LoadPlayer();
+        Vector3 spot = new Vector3(data.xyz[0], data.xyz[1], data.xyz[2]);
+
+        this.respawnPoint = spot;
+        this.transform.position = spot;
+    }
 }
