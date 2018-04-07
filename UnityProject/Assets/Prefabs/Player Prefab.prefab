@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114010152475240078}
   - component: {fileID: 114430133170240192}
   - component: {fileID: 114404034454698944}
+  - component: {fileID: 114243657112587258}
   m_Layer: 0
   m_Name: Player Prefab
   m_TagString: Player
@@ -146,11 +147,20 @@ MonoBehaviour:
     m_Bits: 256
   airControl: 1
   jumpForce: 300
-  IsContinued: 0
   currHealth: 0
   maxHealth: 5
   respawnPoint: {x: 0, y: 0, z: 0}
-  ContinuePoint: {x: 0, y: 0, z: 0}
+--- !u!114 &114243657112587258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1981043672271992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cecc637ce2f5a744863880aad70c5b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114404034454698944
 MonoBehaviour:
   m_ObjectHideFlags: 1
