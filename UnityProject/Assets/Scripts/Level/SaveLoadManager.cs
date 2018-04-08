@@ -2,8 +2,6 @@
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-using System.Threading;
-
 using UnityEngine.SceneManagement;
 
 public class SaveLoadManager : MonoBehaviour

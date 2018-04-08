@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114228594091157582}
   - component: {fileID: 114174521000834088}
   m_Layer: 0
-  m_Name: Level manager
+  m_Name: Level Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

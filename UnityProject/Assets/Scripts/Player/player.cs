@@ -9,6 +9,8 @@ public class player : MonoBehaviour
 
     private Rigidbody2D myrigidBody;
     private Animator myAnimator;
+    private AudioManager _audioManager;
+
 
     #endregion
 
@@ -66,6 +68,8 @@ public class player : MonoBehaviour
         facingRight = true;
         myrigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        _audioManager = GameObject.Find("Audio Manager").GetComponent<AudioManager>();
+
 
         RestoreHealth(maxHealth);
         respawnPoint = this.transform.position;
@@ -76,6 +80,7 @@ public class player : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        print(_audioManager == null);
         HandleInput();
 
         if (currHealth > maxHealth)
@@ -137,12 +142,18 @@ public class player : MonoBehaviour
     private void handleMovement(float horizontal)
     {
         if (isGrounded || airControl)
+        {
+            if (horizontal > 0 || horizontal < 0)
+            {
+                _audioManager.PlayMovement("Run", false);
+            }
             myrigidBody.velocity = new Vector2(horizontal * movementSpeed, myrigidBody.velocity.y);
+        }
 
         // Jumping script
         if (isGrounded && jump)
         {
-            SounManagerScriptSFX.PlaySound("jump_takeoff");    // plays jump sound
+            _audioManager.PlayMovement("Jump", false);    // plays jump sound
 
             isGrounded = false;
             myrigidBody.AddForce(new Vector2(0, jumpForce));
@@ -150,7 +161,7 @@ public class player : MonoBehaviour
         }
         else if (!isGrounded && canDoubleJump && jump)          // double jump script
         {
-            SounManagerScriptSFX.PlaySound("jump_takeoff");    // if double jumped, plays jump sound again
+            _audioManager.PlayMovement("Jump", true);    // if double jumped, plays jump sound again
 
             canDoubleJump = false;
             myrigidBody.velocity = new Vector2(myrigidBody.velocity.x, 0);
@@ -219,7 +230,7 @@ public class player : MonoBehaviour
     /// <param name="amount"></param>
     public void TakeDamage(int amount)
     {
-        SounManagerScriptSFX.PlaySound("damage");
+        _audioManager.PlayDamage();
         currHealth -= amount;
     }
 
