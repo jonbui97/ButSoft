@@ -94,6 +94,7 @@ public class AudioManager : MonoBehaviour
                 {
                     return;
                 }
+
                 ChangeMusic(audioMovement, run, letItRepeat);
                 audioMovement.volume = 0.15f;
 

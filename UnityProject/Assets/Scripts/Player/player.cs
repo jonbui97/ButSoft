@@ -16,8 +16,9 @@ public class player : MonoBehaviour
 
     #region Booleans
 
-    private bool facingRight;
     public bool isGrounded;
+
+    private bool facingRight;
     private bool jump;
     private bool canDoubleJump;
     private bool enableDoubleJump = false;
@@ -253,6 +254,8 @@ public class player : MonoBehaviour
 
     #endregion
 
+    #region Load Data Method
+
     private void LoadData()
     {
         PlayerData data = SaveLoadManager.LoadPlayer();
@@ -263,7 +266,9 @@ public class player : MonoBehaviour
         this.enableDoubleJump = data.enableDoubleJump;
     }
 
-    #region EnableDoubleJump
+    #endregion
+
+    #region Enable Double Jump Methods
     public void EnableDoubleJump()
     {
         enableDoubleJump = true;

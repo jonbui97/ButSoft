@@ -18,7 +18,7 @@ public class trap : MonoBehaviour
     {
         if (col.gameObject.tag == "Trap")
         {
-            Player.TakeDamage(3);
+            Player.TakeDamage(1);
         }
     }
 
