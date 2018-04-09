@@ -17,9 +17,10 @@ public class player : MonoBehaviour
     #region Booleans
 
     private bool facingRight;
-    private bool isGrounded;
+    public bool isGrounded;
     private bool jump;
     private bool canDoubleJump;
+    private bool enableDoubleJump = false;
 
     #endregion
 
@@ -159,7 +160,7 @@ public class player : MonoBehaviour
             myrigidBody.AddForce(new Vector2(0, jumpForce));
             canDoubleJump = true;
         }
-        else if (!isGrounded && canDoubleJump && jump)          // double jump script
+        else if (enableDoubleJump && !isGrounded && canDoubleJump && jump)          // double jump script
         {
             _audioManager.PlayMovement("Jump", true);    // if double jumped, plays jump sound again
 
@@ -259,5 +260,18 @@ public class player : MonoBehaviour
 
         this.respawnPoint = spot;
         this.transform.position = spot;
+        this.enableDoubleJump = data.enableDoubleJump;
     }
+
+    #region EnableDoubleJump
+    public void EnableDoubleJump()
+    {
+        enableDoubleJump = true;
+    }
+
+    public bool GetEnableDoubleJump()
+    {
+        return enableDoubleJump;
+    }
+    #endregion
 }

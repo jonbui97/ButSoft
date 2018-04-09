@@ -44,6 +44,7 @@ public class PlayerData
     public float[] xyz;
 
     public string level;
+    public bool enableDoubleJump;
 
     public PlayerData(player player)
     {
@@ -51,6 +52,7 @@ public class PlayerData
         this.xyz[0] = player.respawnPoint.x;
         this.xyz[1] = player.respawnPoint.y;
         this.xyz[2] = player.respawnPoint.z;
+        this.enableDoubleJump = player.GetEnableDoubleJump();
 
         this.level = SceneManager.GetActiveScene().name;
     }
