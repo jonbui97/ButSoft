@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageSound: {fileID: 8300000, guid: db010197377ba7144838006bca6a659f, type: 3}
   jumpTakeoffSound: {fileID: 8300000, guid: 784c457817f5dfd4dabc1b2b3363357f, type: 3}
-  run: {fileID: 8300000, guid: 54ecd9ff30215f6418f93dd15d1fc1f3, type: 3}
+  run: {fileID: 8300000, guid: 15c840c732696cd4cb3cdb9def529a00, type: 3}
   checkpoint: {fileID: 8300000, guid: 3888c5f261d11aa44b1b5f5e0ff3022b, type: 3}
   menuMusic: {fileID: 8300000, guid: 99845e9840a5ac34db5d15fc7e5c6a9d, type: 3}
   levelMusic: {fileID: 8300000, guid: 4d025cca1602cc1499f62b071dbc633a, type: 3}

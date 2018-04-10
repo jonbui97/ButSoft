@@ -8,6 +8,7 @@ TagManager:
   - Trap
   - Checkpoint
   - GroundPoint
+  - Teleporter
   layers:
   - Default
   - TransparentFX

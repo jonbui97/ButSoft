@@ -96,7 +96,7 @@ public class AudioManager : MonoBehaviour
                 }
 
                 ChangeMusic(audioMovement, run, letItRepeat);
-                audioMovement.volume = 0.15f;
+                audioMovement.volume = 0.3f;
 
                 break;
             case "Jump":

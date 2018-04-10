@@ -40,6 +40,8 @@ public class player : MonoBehaviour
     [SerializeField]
     private float jumpForce;
 
+    private Vector3 _teleporterPosition;
+
     #endregion
 
     #region Properties
@@ -122,13 +124,11 @@ public class player : MonoBehaviour
             currHealth = maxHealth;
             SaveLoadManager.SavePlayer(this);
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Ground")
+        if (other.gameObject.tag == "Teleporter")
         {
-            print("yup");
+            _teleporterPosition = other.transform.position;
+
         }
     }
 
@@ -241,6 +241,7 @@ public class player : MonoBehaviour
     {
         _audioManager.PlayDamage();
         currHealth -= amount;
+        this.transform.position = _teleporterPosition;
     }
 
     /// <summary>
