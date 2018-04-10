@@ -231,14 +231,12 @@
     <Compile Include="Assets\Materials\MainMenu\Scripts\DragMe.cs" />
     <Compile Include="Assets\Materials\MainMenu\Scripts\DragPanel.cs" />
     <Compile Include="Assets\Materials\MainMenu\Scripts\DropMe.cs" />
-    <Compile Include="Assets\Materials\MainMenu\Scripts\KeyBind.cs" />
     <Compile Include="Assets\Materials\MainMenu\Scripts\LoadSceneOnClick.cs" />
     <Compile Include="Assets\Materials\MainMenu\Scripts\PanelManager.cs" />
     <Compile Include="Assets\Materials\MainMenu\Scripts\QuitOnClick.cs" />
     <Compile Include="Assets\Materials\MainMenu\Scripts\ResizePanel.cs" />
     <Compile Include="Assets\Materials\MainMenu\Scripts\ScrollDetailTexture.cs" />
     <Compile Include="Assets\Materials\MainMenu\Scripts\SelectOnInput.cs" />
-    <Compile Include="Assets\Materials\MainMenu\Scripts\SettingsMenu.cs" />
     <Compile Include="Assets\Materials\MainMenu\Scripts\ShowSliderValue.cs" />
     <Compile Include="Assets\Materials\MainMenu\Scripts\TiltWindow.cs" />
     <Compile Include="Assets\Materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\Benchmark01.cs" />
@@ -286,6 +284,9 @@
     <Compile Include="Assets\Scripts\Player\BetterJump.cs" />
     <Compile Include="Assets\Scripts\Player\player.cs" />
     <Compile Include="Assets\Scripts\Template.cs" />
+    <Compile Include="Assets\Scripts\UI\KeyBind.cs" />
+    <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\SettingsMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Materials\MainMenu\Materials\UI-Default-No-Alpha.shader" />

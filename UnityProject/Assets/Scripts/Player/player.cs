@@ -82,7 +82,6 @@ public class player : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        print(_audioManager == null);
         HandleInput();
 
         if (currHealth > maxHealth)
@@ -125,8 +124,16 @@ public class player : MonoBehaviour
         }
     }
 
-    #endregion
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            print("yup");
+        }
+    }
 
+    #endregion
+    
     #region Movement methods
 
     /// <summary>
