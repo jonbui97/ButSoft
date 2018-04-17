@@ -141,7 +141,7 @@ public class player : MonoBehaviour
     /// </summary>
     private void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Jump", "Space"))))
             jump = true;
     }
 
