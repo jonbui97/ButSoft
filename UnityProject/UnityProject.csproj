@@ -218,10 +218,10 @@
       <HintPath>Assets/Materials/MainMenu/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-1.0.56-Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/minbut3/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/Jonas/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/minbut3/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/Jonas/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -274,6 +274,7 @@
     <Compile Include="Assets\Materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Other\GameObjects\Camera\FollowPlayer.cs" />
     <Compile Include="Assets\Other\GameObjects\DoubleJumpPickUp\DoubleJumpPickUp.cs" />
+    <Compile Include="Assets\Scripts\Extensions\MonoBehaviourExtended.cs" />
     <Compile Include="Assets\Scripts\HUD\HUD.cs" />
     <Compile Include="Assets\Scripts\Level\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Level\Checkpoint.cs" />
@@ -284,6 +285,7 @@
     <Compile Include="Assets\Scripts\Player\BetterJump.cs" />
     <Compile Include="Assets\Scripts\Player\player.cs" />
     <Compile Include="Assets\Scripts\Player\TimeBody.cs" />
+    <Compile Include="Assets\Scripts\Static classes\Singleton.cs" />
     <Compile Include="Assets\Scripts\Template.cs" />
     <Compile Include="Assets\Scripts\UI\KeyBind.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
