@@ -1,12 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class trap : MonoBehaviour
 {
-
+    private static int count = 1;
     public player Player;
+    public int damage = 1;
 
     //void OnCollision2dEnter(Collision col)
     //{
@@ -18,7 +20,13 @@ public class trap : MonoBehaviour
     {
         if (col.gameObject.tag == "Trap")
         {
-            Player.TakeDamage(1);
+            if (String.Equals(PlayerPrefs.GetString("Rewind"), "yes"))
+            {
+                Player.TakeDamage(damage);
+            print(count);
+            count++;
+            }
+            
         }
     }
 

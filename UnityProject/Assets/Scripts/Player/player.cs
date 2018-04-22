@@ -227,7 +227,7 @@ public class player : MonoBehaviour
     /// <summary>
     /// When currHealth reaches 0, player re-spawn and health restored  
     /// </summary>
-    private void Die()
+    public void Die()
     {
         RestoreHealth(maxHealth);
         transform.position = respawnPoint;
@@ -241,7 +241,7 @@ public class player : MonoBehaviour
     {
         _audioManager.PlayDamage();
         currHealth -= amount;
-        this.transform.position = _teleporterPosition;
+        //this.transform.position = _teleporterPosition;
     }
 
     /// <summary>

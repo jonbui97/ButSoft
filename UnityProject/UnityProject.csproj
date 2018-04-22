@@ -283,6 +283,7 @@
     <Compile Include="Assets\Scripts\Level\trap.cs" />
     <Compile Include="Assets\Scripts\Player\BetterJump.cs" />
     <Compile Include="Assets\Scripts\Player\player.cs" />
+    <Compile Include="Assets\Scripts\Player\TimeBody.cs" />
     <Compile Include="Assets\Scripts\Template.cs" />
     <Compile Include="Assets\Scripts\UI\KeyBind.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
