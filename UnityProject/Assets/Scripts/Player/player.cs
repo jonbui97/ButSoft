@@ -133,7 +133,7 @@ public class player : MonoBehaviour
     }
 
     #endregion
-    
+
     #region Movement methods
 
     /// <summary>
@@ -143,6 +143,18 @@ public class player : MonoBehaviour
     {
         if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Jump", "Space"))))
             jump = true;
+        myAnimator.SetFloat("speed", 0);
+        if (Time.timeScale != 0f)
+        {
+            if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "RightArrow"))))
+            {
+                myAnimator.SetFloat("speed", (float)0.5);
+            }
+            if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "LeftArrow"))))
+            {
+                myAnimator.SetFloat("speed", (float)0.5);
+            }
+        }
     }
 
     /// <summary>
@@ -152,12 +164,22 @@ public class player : MonoBehaviour
     {
         if (isGrounded || airControl)
         {
-            if (horizontal > 0 || horizontal < 0)
+            if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "RightArrow"))) ||
+             Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "LeftArrow"))))
             {
                 _audioManager.PlayMovement("Run", false);
             }
-            myrigidBody.velocity = new Vector2(horizontal * movementSpeed, myrigidBody.velocity.y);
+            // myrigidBody.velocity = new Vector2(horizontal * movementSpeed, myrigidBody.velocity.y);
+            if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "RightArrow"))))
+            {
+                myrigidBody.velocity = new Vector2((float)0.75 * movementSpeed, myrigidBody.velocity.y);
+            }
+            if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "LeftArrow"))))
+            {
+                myrigidBody.velocity = new Vector2((float)-0.75 * movementSpeed, myrigidBody.velocity.y);
+            }
         }
+
 
         // Jumping script
         if (isGrounded && jump)
@@ -165,6 +187,7 @@ public class player : MonoBehaviour
             _audioManager.PlayMovement("Jump", false);    // plays jump sound
 
             isGrounded = false;
+
             myrigidBody.AddForce(new Vector2(0, jumpForce));
             canDoubleJump = true;
         }
@@ -177,7 +200,7 @@ public class player : MonoBehaviour
             myrigidBody.AddForce(new Vector2(0, jumpForce));
         }
 
-        myAnimator.SetFloat("speed", Mathf.Abs(horizontal));
+
     }
 
     /// <summary>
@@ -194,7 +217,8 @@ public class player : MonoBehaviour
     /// <param name="horizontal"></param>
     private void Flip(float horizontal)
     {
-        if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
+        if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "RightArrow"))) && !facingRight ||
+            Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "LeftArrow"))) && facingRight)
         {
             facingRight = !facingRight;
             Vector3 theScale = transform.localScale;

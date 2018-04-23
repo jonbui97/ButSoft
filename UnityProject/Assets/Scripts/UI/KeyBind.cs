@@ -7,7 +7,7 @@ public class KeyBind : MonoBehaviour
 {
 
     private Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
-    public Text left, right, jump;
+    public Text left, right, jump, pause;
     private GameObject currentKey;
     private Color32 normal = new Color(255, 255, 255, 255);
     private Color32 pressed = new Color(251, 255, 0, 255);
@@ -19,10 +19,12 @@ public class KeyBind : MonoBehaviour
         keys.Add("Left", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "LeftArrow")));
         keys.Add("Right", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "RightArrow")));
         keys.Add("Jump", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Jump", "Space")));
-
+        keys.Add("Pause", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Pause", "Escape")));
+        
         //Names displayed on buttons
         left.text = keys["Left"].ToString();
         right.text = keys["Right"].ToString();
+        pause.text = keys["Pause"].ToString();
         jump.text = keys["Jump"].ToString();
         if (keys["Left"] == KeyCode.LeftArrow)
         {
@@ -46,8 +48,7 @@ public class KeyBind : MonoBehaviour
         if (currentKey != null)
         {
             Event e = Event.current;
-            if (e.isKey)
-            {
+            if (e.isKey && !keys.ContainsValue(e.keyCode))            {
                 keys[currentKey.name] = e.keyCode;
                 if (keys[currentKey.name] == KeyCode.LeftArrow)
                 {

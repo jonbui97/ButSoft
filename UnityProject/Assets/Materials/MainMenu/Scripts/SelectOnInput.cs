@@ -19,7 +19,12 @@ public class SelectOnInput : MonoBehaviour {
             eventSystem.SetSelectedGameObject(selectedObject);
             buttonSelected = true;
         }
-	}
+        if (Input.GetAxisRaw("Horizontal") != 0 && buttonSelected == false)
+        {
+            eventSystem.SetSelectedGameObject(selectedObject);
+            buttonSelected = true;
+        }
+    }
     private void OnDisable() 
     {
         buttonSelected = false;
