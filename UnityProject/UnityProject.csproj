@@ -275,6 +275,7 @@
     <Compile Include="Assets\Materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Other\GameObjects\Camera\FollowPlayer.cs" />
     <Compile Include="Assets\Other\GameObjects\DoubleJumpPickUp\DoubleJumpPickUp.cs" />
+    <Compile Include="Assets\Scripts\Area_Effect_No_Jumping.cs" />
     <Compile Include="Assets\Scripts\Camera\Camera_Controller.cs" />
     <Compile Include="Assets\Scripts\Extensions\MonoBehaviourExtended.cs" />
     <Compile Include="Assets\Scripts\HUD\HUD.cs" />

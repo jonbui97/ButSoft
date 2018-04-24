@@ -22,6 +22,7 @@ public class player : MonoBehaviour
     private bool jump;
     private bool canDoubleJump;
     private bool enableDoubleJump = false;
+    private bool inNoJumpingZone = false;
 
     #endregion
 
@@ -182,7 +183,7 @@ public class player : MonoBehaviour
 
 
         // Jumping script
-        if (isGrounded && jump)
+        if (isGrounded && jump && inNoJumpingZone == false)
         {
             _audioManager.PlayMovement("Jump", false);    // plays jump sound
 
@@ -191,7 +192,7 @@ public class player : MonoBehaviour
             myrigidBody.AddForce(new Vector2(0, jumpForce));
             canDoubleJump = true;
         }
-        else if (enableDoubleJump && !isGrounded && canDoubleJump && jump)          // double jump script
+        else if (enableDoubleJump && !isGrounded && canDoubleJump && jump && inNoJumpingZone == false)          // double jump script
         {
             _audioManager.PlayMovement("Jump", true);    // if double jumped, plays jump sound again
 
@@ -310,5 +311,19 @@ public class player : MonoBehaviour
     {
         return enableDoubleJump;
     }
+    #endregion
+
+    #region No Jumping Methods
+
+    public void DisableJumping()
+    {
+        inNoJumpingZone = true;
+    }
+
+    public void EnableBackJumping()
+    {
+        inNoJumpingZone = false;
+    }
+
     #endregion
 }
