@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
-public class player : MonoBehaviour
+public class player : NetworkBehaviour
 {
     #region Referencees
 
@@ -84,6 +85,11 @@ public class player : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         HandleInput();
 
         if (currHealth > maxHealth)
@@ -130,6 +136,16 @@ public class player : MonoBehaviour
             _teleporterPosition = other.transform.position;
 
         }
+    }
+
+    #endregion
+
+    #region Network Unity Methods
+
+    public override void OnStartLocalPlayer()
+    {
+       // base.OnStartLocalPlayer();
+        GetComponentInChildren<Camera>().enabled = true;
     }
 
     #endregion
@@ -217,14 +233,14 @@ public class player : MonoBehaviour
     /// <param name="horizontal"></param>
     private void Flip(float horizontal)
     {
-        if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "RightArrow"))) && !facingRight ||
-            Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "LeftArrow"))) && facingRight)
-        {
-            facingRight = !facingRight;
-            Vector3 theScale = transform.localScale;
-            theScale.x *= -1;
-            transform.localScale = theScale;
-        }
+        //if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "RightArrow"))) && !facingRight ||
+        //    Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "LeftArrow"))) && facingRight)
+        //{
+        //    facingRight = !facingRight;
+        //    Vector3 theScale = transform.localScale;
+        //    theScale.x *= -1;
+        //    transform.localScale = theScale;
+        //}
     }
 
     /// <summary>

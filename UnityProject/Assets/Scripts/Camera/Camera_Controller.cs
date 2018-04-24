@@ -1,17 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Camera_Controller : MonoBehaviour
 {
 
-    public GameObject player;
+    public player player;
     [SerializeField]
     private float amount;
     [SerializeField]
     private float moveSpeed;
     [SerializeField]
     private Vector3 offset;
+
+    private void Start()
+    {
+        player = this.GetComponentInParent<player>();
+    }
 
     void Update()
     {
