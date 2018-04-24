@@ -62,6 +62,10 @@ public class SettingsMenu : MonoBehaviour {
     {
         Screen.fullScreen = isFullScreen;
     }
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
     void Update()
     {
         PlayerPrefs.SetFloat("MasterVolume", masterVolSlider.value);
