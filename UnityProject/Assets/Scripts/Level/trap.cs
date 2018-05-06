@@ -6,15 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class trap : MonoBehaviour
 {
-    private static int count = 1;
     public player Player;
     public int damage = 1;
-
-    //void OnCollision2dEnter(Collision col)
-    //{
-    //    if(col.gameObject.tag == "Trap")
-    //        Player.TakeDamage(3);
-    //}
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -23,8 +16,6 @@ public class trap : MonoBehaviour
             if (String.Equals(PlayerPrefs.GetString("Rewind"), "yes"))
             {
                 Player.TakeDamage(damage);
-            print(count);
-            count++;
             }
             
         }

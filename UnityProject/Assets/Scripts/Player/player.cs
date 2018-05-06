@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
-public class player : MonoBehaviour
+public class player : NetworkBehaviour
 {
     #region Referencees
 
@@ -78,6 +79,12 @@ public class player : MonoBehaviour
 
         RestoreHealth(maxHealth);
         respawnPoint = this.transform.position;
+
+        if (!isLocalPlayer)
+        {
+            base.OnStartLocalPlayer();
+            FindObjectOfType<Camera_Controller>().GetComponent<Camera_Controller>().TurnCamareOff();
+        }
     }
 
     /// <summary>
@@ -85,6 +92,11 @@ public class player : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         HandleInput();
 
         if (currHealth > maxHealth)
@@ -131,6 +143,12 @@ public class player : MonoBehaviour
             _teleporterPosition = other.transform.position;
 
         }
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        base.OnStartLocalPlayer();
+        FindObjectOfType<Camera_Controller>().GetComponent<Camera_Controller>().TurnCameraOn();
     }
 
     #endregion

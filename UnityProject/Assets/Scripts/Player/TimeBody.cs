@@ -54,7 +54,6 @@ public class TimeBody : MonoBehaviour
         }
         if (other.gameObject.tag == "Trap")
         {
-            print("trigerina");
             StopRecording();
             StartRewind();
         }
@@ -71,7 +70,6 @@ public class TimeBody : MonoBehaviour
 
     void Rewind()
     {
-        print("aaa");
         if (positions.Count > 0)
         {
             transform.position = positions[0];

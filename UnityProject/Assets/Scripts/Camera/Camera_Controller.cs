@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 
 public class Camera_Controller : MonoBehaviour
 {
 
-    public GameObject player;
+    private player player;
     [SerializeField]
     private float amount;
     [SerializeField]
@@ -13,28 +14,59 @@ public class Camera_Controller : MonoBehaviour
     [SerializeField]
     private Vector3 offset;
 
+    private void Start()
+    {
+        InitializePlayer();
+    }
+
     void Update()
     {
-
-
-        if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("CameraUp", "UpArrow"))))
-        //if (Input.GetAxis("Vertical") > 0)
+        if (!player)
         {
-            Vector3 target = new Vector3(player.transform.position.x + offset.x, player.transform.position.y + (2 * offset.y) + amount, player.transform.position.z + offset.z);
+            InitializePlayer();
+            return;
+        }
+
+        if (Input.GetKey((KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("CameraUp", "UpArrow"))))
+        {
+            Vector3 target = new Vector3(player.transform.position.x + offset.x,
+                player.transform.position.y + (2 * offset.y) + amount, player.transform.position.z + offset.z);
             transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * moveSpeed);
         }
 
-        else //if (Input.GetAxis("Vertical") < 0)
-         if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("CameraDown", "DownArrow"))))
+        else if (Input.GetKey((KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("CameraDown", "DownArrow"))))
         {
-            Vector3 target = new Vector3(player.transform.position.x + offset.x, player.transform.position.y - offset.y - amount, player.transform.position.z + offset.z);
+            Vector3 target = new Vector3(player.transform.position.x + offset.x,
+                player.transform.position.y - offset.y - amount, player.transform.position.z + offset.z);
             transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * moveSpeed);
         }
+
         else
-        //if (Input.GetAxis("Vertical") == 0)
+        {
+            Vector3 target = new Vector3(player.transform.position.x + offset.x,
+                player.transform.position.y + offset.y, player.transform.position.z + offset.z);
+            transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * moveSpeed);
+        }
+    }
+
+    private void InitializePlayer()
+    {
+        player = GameObject.FindObjectOfType<player>();
+
+        if (player)
         {
             Vector3 target = new Vector3(player.transform.position.x + offset.x, player.transform.position.y + offset.y, player.transform.position.z + offset.z);
-            transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * moveSpeed);
+            transform.position = target;
         }
+    }
+
+    public void TurnCameraOn()
+    {
+        GetComponent<Camera>().enabled = true;
+    }
+
+    public void TurnCamareOff()
+    {
+        GetComponent<Camera>().enabled = false;
     }
 }
