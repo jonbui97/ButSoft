@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 114966096557942766}
   - component: {fileID: 114220534335730946}
   - component: {fileID: 114780833390371158}
+  - component: {fileID: 114761901130051776}
   m_Layer: 0
   m_Name: Player Prefab
   m_TagString: Player
@@ -206,9 +207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcf63fe5739e3e4f9d1aa1f61bfdb72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundPoint: {fileID: 4689581847467348}
   isGrounded: 0
   movementSpeed: 10
-  groundPoint: {fileID: 4689581847467348}
   groundRadius: 0.2
   whatIsGround:
     serializedVersion: 2
@@ -276,6 +277,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 114010152475240078}
   damage: 1
+--- !u!114 &114761901130051776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1981043672271992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d6e416ffd0e5f34f82b71add7dfcf41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTransform: {fileID: 4653192246828568}
+  lerpRate: 15
 --- !u!114 &114780833390371158
 MonoBehaviour:
   m_ObjectHideFlags: 1

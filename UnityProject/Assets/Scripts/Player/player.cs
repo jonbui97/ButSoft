@@ -9,9 +9,12 @@ public class player : NetworkBehaviour
     #region Referencees
 
     private Rigidbody2D myrigidBody;
+
     private Animator myAnimator;
+
     private AudioManager _audioManager;
 
+    [SerializeField] public Transform groundPoint;
 
     #endregion
 
@@ -29,18 +32,17 @@ public class player : NetworkBehaviour
 
     #region Fields
 
-    [SerializeField]
-    private float movementSpeed;
-    [SerializeField]
-    public Transform groundPoint;
-    [SerializeField]
-    private float groundRadius;
-    [SerializeField]
-    private LayerMask whatIsGround;
-    [SerializeField]
-    private bool airControl;
-    [SerializeField]
-    private float jumpForce;
+    [SerializeField] private float movementSpeed;
+
+    
+
+    [SerializeField] private float groundRadius;
+
+    [SerializeField] private LayerMask whatIsGround;
+
+    [SerializeField] private bool airControl;
+
+    [SerializeField] private float jumpForce;
 
     private Vector3 _teleporterPosition;
 
@@ -48,10 +50,9 @@ public class player : NetworkBehaviour
 
     #region Properties
 
-    [SerializeField]
-    public int currHealth;
-    [SerializeField]
-    public int maxHealth = 5;
+    [SerializeField] public int currHealth;
+
+    [SerializeField] public int maxHealth = 5;
 
     public Vector3 respawnPoint;
 
@@ -79,12 +80,7 @@ public class player : NetworkBehaviour
 
         RestoreHealth(maxHealth);
         respawnPoint = this.transform.position;
-
-        if (!isLocalPlayer)
-        {
-            base.OnStartLocalPlayer();
-            FindObjectOfType<Camera_Controller>().GetComponent<Camera_Controller>().TurnCamareOff();
-        }
+        respawnPoint = this.transform.position;
     }
 
     /// <summary>
@@ -114,6 +110,11 @@ public class player : NetworkBehaviour
     /// </summary>
     private void FixedUpdate()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         float horizontal = Input.GetAxis("Horizontal");
         isGrounded = IsGrounded();
 
@@ -148,7 +149,7 @@ public class player : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         base.OnStartLocalPlayer();
-        FindObjectOfType<Camera_Controller>().GetComponent<Camera_Controller>().TurnCameraOn();
+        //FindObjectOfType<Camera_Controller>().GetComponent<Camera_Controller>().TurnCameraOn();
     }
 
     #endregion

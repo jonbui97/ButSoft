@@ -65,7 +65,7 @@ public class Camera_Controller : MonoBehaviour
         GetComponent<Camera>().enabled = true;
     }
 
-    public void TurnCamareOff()
+    public void TurnCameraOff()
     {
         GetComponent<Camera>().enabled = false;
     }
