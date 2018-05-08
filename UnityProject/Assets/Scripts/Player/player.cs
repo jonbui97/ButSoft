@@ -15,6 +15,7 @@ public class player : NetworkBehaviour
     private AudioManager _audioManager;
 
     [SerializeField] public Transform groundPoint;
+    [SerializeField] public Transform groundPoint2;
 
     #endregion
 
@@ -49,6 +50,7 @@ public class player : NetworkBehaviour
 
 
     private Vector3 _teleporterPosition;
+    private float defaultJumpForce;
 
     #endregion
 
@@ -86,6 +88,8 @@ public class player : NetworkBehaviour
         RestoreHealth(maxHealth);
         respawnPoint = this.transform.position;
         respawnPoint = this.transform.position;
+
+        groundPoint2.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -121,7 +125,10 @@ public class player : NetworkBehaviour
         }
 
         float horizontal = Input.GetAxis("Horizontal");
+
+
         isGrounded = IsGrounded();
+
         handleMovement(horizontal);
         Flip();
         ResetValues();
@@ -348,7 +355,7 @@ public class player : NetworkBehaviour
     }
     #endregion
 
-    #region No Jumping Methods
+    #region Special Zones
 
     public void DisableJumping()
     {
@@ -358,6 +365,16 @@ public class player : NetworkBehaviour
     public void EnableBackJumping()
     {
         inNoJumpingZone = false;
+    }
+
+    public void GravitySwitch()
+    {
+        groundPoint2.gameObject.SetActive(true);
+        groundPoint.gameObject.SetActive(false);
+        defaultJumpForce = jumpForce;
+        jumpForce = -1 * jumpForce;
+
+        transform.rotation = new Quaternion(360, 0, transform.rotation.z, transform.rotation.w);
     }
 
     #endregion
