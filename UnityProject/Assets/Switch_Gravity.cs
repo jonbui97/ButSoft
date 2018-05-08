@@ -23,6 +23,7 @@ public class Switch_Gravity : MonoBehaviour {
         if (collision.transform.tag == "Player")
         {
             Physics2D.gravity = defaultGravity;
+            collision.GetComponent<player>().ResetGravity();
         }
     }
 }
