@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
 
 public class PositionSyncController : NetworkBehaviour
 {
 
     [SyncVar] private Vector3 syncPos;
+    [SyncVar] private Vector3 syncTransform;
 
     [SerializeField] private Transform myTransform;
     [SerializeField] private float lerpRate = 15;
@@ -26,14 +24,16 @@ public class PositionSyncController : NetworkBehaviour
     {
         if (!isLocalPlayer)
         {
+            myTransform.localScale = syncTransform;
             myTransform.position = Vector3.Lerp(myTransform.position, syncPos, Time.deltaTime * lerpRate);
         }
     }
 
     [Command]
-    private void CmdProvidePositionToServer(Vector3 pos)
+    private void CmdProvidePositionToServer(Vector3 pos, Vector3 transform)
     {
         syncPos = pos;
+        syncTransform = transform;
     }
 
     [ClientCallback]
@@ -41,7 +41,7 @@ public class PositionSyncController : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            CmdProvidePositionToServer(myTransform.position);
+            CmdProvidePositionToServer(myTransform.position, myTransform.localScale);
         }
     }
 }

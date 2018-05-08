@@ -21,8 +21,8 @@ public class player : NetworkBehaviour
     #region Booleans
 
     public bool isGrounded;
+    public bool facingRight;
 
-    private bool facingRight;
     private bool jump;
     private bool canDoubleJump;
     private bool enableDoubleJump = false;
@@ -43,6 +43,10 @@ public class player : NetworkBehaviour
     [SerializeField] private bool airControl;
 
     [SerializeField] private float jumpForce;
+
+    private ScaleSyncController _scaleSyncController;
+
+
 
     private Vector3 _teleporterPosition;
 
@@ -65,6 +69,7 @@ public class player : NetworkBehaviour
     private void Awake()
     {
         if (PlayerPrefs.GetString("Continue") == "Yes") { LoadData(); }
+        _scaleSyncController = GetComponent<ScaleSyncController>();
     }
 
     /// <summary>
@@ -117,9 +122,8 @@ public class player : NetworkBehaviour
 
         float horizontal = Input.GetAxis("Horizontal");
         isGrounded = IsGrounded();
-
         handleMovement(horizontal);
-        Flip(horizontal);
+        Flip();
         ResetValues();
     }
 
@@ -235,7 +239,7 @@ public class player : NetworkBehaviour
     /// Flips player depending on which direction looking at
     /// </summary>
     /// <param name="horizontal"></param>
-    private void Flip(float horizontal)
+    private void Flip()
     {
         if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "RightArrow"))) && !facingRight ||
             Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "LeftArrow"))) && facingRight)
@@ -246,6 +250,18 @@ public class player : NetworkBehaviour
             transform.localScale = theScale;
         }
     }
+
+    //private void Flip()
+    //{
+    //    if (Input.GetKey((KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "RightArrow"))) &&
+    //        !facingRight ||
+    //        Input.GetKey((KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "LeftArrow"))) &&
+    //        facingRight)
+    //    {
+    //        facingRight = !facingRight;
+    //        _scaleSyncController.CmdFlipSprite(facingRight);
+    //    }
+    //}
 
     /// <summary>
     /// Checks if the player is standing on the ground or in the air.
