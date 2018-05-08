@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -277,6 +275,12 @@
     <Compile Include="Assets\Other\GameObjects\Camera\FollowPlayer.cs" />
     <Compile Include="Assets\Other\GameObjects\DoubleJumpPickUp\DoubleJumpPickUp.cs" />
     <Compile Include="Assets\Scripts\Area_Effect_No_Jumping.cs" />
+    <Compile Include="Assets\Scripts\BlockBreaker\Ball.cs" />
+    <Compile Include="Assets\Scripts\BlockBreaker\BlockBreakerLevelManager.cs" />
+    <Compile Include="Assets\Scripts\BlockBreaker\Brick.cs" />
+    <Compile Include="Assets\Scripts\BlockBreaker\LoseCollider.cs" />
+    <Compile Include="Assets\Scripts\BlockBreaker\MusicPlayer.cs" />
+    <Compile Include="Assets\Scripts\BlockBreaker\Paddle.cs" />
     <Compile Include="Assets\Scripts\Camera\Camera_Controller.cs" />
     <Compile Include="Assets\Scripts\Extensions\MonoBehaviourExtended.cs" />
     <Compile Include="Assets\Scripts\HUD\HUD.cs" />
@@ -289,8 +293,8 @@
     <Compile Include="Assets\Scripts\Network\NetworkSetup.cs" />
     <Compile Include="Assets\Scripts\Network\PositionSyncController.cs" />
     <Compile Include="Assets\Scripts\Network\RotationSyncController.cs" />
-    <Compile Include="Assets\Scripts\Player\BetterJump.cs" />
     <Compile Include="Assets\Scripts\Network\ScaleSyncController.cs" />
+    <Compile Include="Assets\Scripts\Player\BetterJump.cs" />
     <Compile Include="Assets\Scripts\Player\player.cs" />
     <Compile Include="Assets\Scripts\Player\TimeBody.cs" />
     <Compile Include="Assets\Scripts\Singletons\MyNetworkManager.cs" />
