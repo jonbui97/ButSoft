@@ -14,7 +14,6 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
@@ -219,10 +218,10 @@
       <HintPath>Assets/Materials/MainMenu/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-1.0.56-Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/Aurimas/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/minbut3/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/Aurimas/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/minbut3/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -275,6 +274,7 @@
     <Compile Include="Assets\Materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Other\GameObjects\Camera\FollowPlayer.cs" />
     <Compile Include="Assets\Other\GameObjects\DoubleJumpPickUp\DoubleJumpPickUp.cs" />
+    <Compile Include="Assets\Play.cs" />
     <Compile Include="Assets\Scripts\Area_Effect_No_Jumping.cs" />
     <Compile Include="Assets\Scripts\BlockBreaker\Ball.cs" />
     <Compile Include="Assets\Scripts\BlockBreaker\BlockBreakerLevelManager.cs" />
