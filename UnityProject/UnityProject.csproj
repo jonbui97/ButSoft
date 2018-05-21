@@ -275,8 +275,6 @@
     <Compile Include="Assets\Materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Other\GameObjects\Camera\FollowPlayer.cs" />
     <Compile Include="Assets\Other\GameObjects\DoubleJumpPickUp\DoubleJumpPickUp.cs" />
-    <Compile Include="Assets\Play.cs" />
-    <Compile Include="Assets\Scripts\Area_Effect_No_Jumping.cs" />
     <Compile Include="Assets\Scripts\BlockBreaker\Ball.cs" />
     <Compile Include="Assets\Scripts\BlockBreaker\BlockBreakerLevelManager.cs" />
     <Compile Include="Assets\Scripts\BlockBreaker\Brick.cs" />
@@ -288,14 +286,18 @@
     <Compile Include="Assets\Scripts\HUD\HUD.cs" />
     <Compile Include="Assets\Scripts\Level\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Level\Checkpoint.cs" />
+    <Compile Include="Assets\Scripts\Level\EnableBG.cs" />
     <Compile Include="Assets\Scripts\Level\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Level\Platform_Move.cs" />
     <Compile Include="Assets\Scripts\Level\SaveLoadManager.cs" />
     <Compile Include="Assets\Scripts\Level\trap.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\Area_Effect_No_Jumping.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\Switch_Gravity.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkSetup.cs" />
     <Compile Include="Assets\Scripts\Network\PositionSyncController.cs" />
     <Compile Include="Assets\Scripts\Network\RotationSyncController.cs" />
     <Compile Include="Assets\Scripts\Network\ScaleSyncController.cs" />
+    <Compile Include="Assets\Scripts\Play.cs" />
     <Compile Include="Assets\Scripts\Player\BetterJump.cs" />
     <Compile Include="Assets\Scripts\Player\player.cs" />
     <Compile Include="Assets\Scripts\Player\TimeBody.cs" />
@@ -305,7 +307,6 @@
     <Compile Include="Assets\Scripts\UI\KeyBind.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SettingsMenu.cs" />
-    <Compile Include="Assets\Switch_Gravity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Materials\MainMenu\Materials\UI-Default-No-Alpha.shader" />

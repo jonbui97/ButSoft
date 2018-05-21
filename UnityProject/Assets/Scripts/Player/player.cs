@@ -26,7 +26,7 @@ public class player : NetworkBehaviour
 
     private bool jump;
     private bool canDoubleJump;
-    private bool enableDoubleJump = false;
+    private bool enableDoubleJump = true;
     private bool inNoJumpingZone = false;
 
     #endregion
@@ -369,17 +369,21 @@ public class player : NetworkBehaviour
 
     public void GravitySwitch()
     {
+        groundPoint2.gameObject.SetActive(true);
+        groundPoint.gameObject.SetActive(false);
         defaultJumpForce = jumpForce;
         jumpForce = -1 * jumpForce;
 
-        transform.rotation = new Quaternion(360, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+        transform.rotation = new Quaternion(360, 0, transform.rotation.z, transform.rotation.w);
     }
 
-    public void ResetGravity()
+    public void GravityReset()
     {
+        groundPoint2.gameObject.SetActive(false);
+        groundPoint.gameObject.SetActive(true);
         jumpForce = defaultJumpForce;
 
-        transform.rotation = new Quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+        transform.rotation = new Quaternion(0, 0, transform.rotation.z, transform.rotation.w);
     }
 
     #endregion
