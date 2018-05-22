@@ -304,6 +304,7 @@
     <Compile Include="Assets\Scripts\Singletons\MyNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Static classes\Singleton.cs" />
     <Compile Include="Assets\Scripts\Template.cs" />
+    <Compile Include="Assets\Scripts\ToEnding.cs" />
     <Compile Include="Assets\Scripts\UI\KeyBind.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SettingsMenu.cs" />

@@ -26,7 +26,7 @@ public class player : NetworkBehaviour
 
     private bool jump;
     private bool canDoubleJump;
-    private bool enableDoubleJump = true;
+    private bool enableDoubleJump = false;
     private bool inNoJumpingZone = false;
 
     #endregion
