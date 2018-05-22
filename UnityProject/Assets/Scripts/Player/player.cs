@@ -35,7 +35,7 @@ public class player : NetworkBehaviour
 
     [SerializeField] private float movementSpeed;
 
-    
+
 
     [SerializeField] private float groundRadius;
 
@@ -131,6 +131,8 @@ public class player : NetworkBehaviour
 
         handleMovement(horizontal);
         Flip();
+        HandleLayers();
+
         ResetValues();
     }
 
@@ -174,6 +176,7 @@ public class player : NetworkBehaviour
     {
         if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Jump", "Space"))))
             jump = true;
+        myAnimator.SetTrigger("jump");
         myAnimator.SetFloat("speed", 0);
         if (Time.timeScale != 0f)
         {
@@ -188,11 +191,28 @@ public class player : NetworkBehaviour
         }
     }
 
+    private void HandleLayers()
+    {
+        if (!isGrounded)
+        {
+            myAnimator.SetLayerWeight(0, 0);
+            myAnimator.SetLayerWeight(1, 1);
+        }
+        else
+        {
+            myAnimator.SetLayerWeight(0, 1);
+            myAnimator.SetLayerWeight(1, 0);
+        }
+    }
     /// <summary>
     /// Calculates player's movement amounts.
     /// </summary>
     private void handleMovement(float horizontal)
     {
+        if (myrigidBody.velocity.y < 0)
+        {
+            myAnimator.SetBool("land", true);
+        }
         if (isGrounded || airControl)
         {
             if (Input.GetKey((KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "RightArrow"))) ||
@@ -281,7 +301,12 @@ public class player : NetworkBehaviour
             Collider2D[] colliders = Physics2D.OverlapCircleAll(this.groundPoint.position, this.groundRadius, this.whatIsGround);
             for (int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[0].gameObject != this.gameObject) return true;
+                if (colliders[0].gameObject != this.gameObject)
+                {
+                    myAnimator.ResetTrigger("jump");
+                    myAnimator.SetBool("land", false);
+                    return true;
+                }
             }
         }
         return false;
