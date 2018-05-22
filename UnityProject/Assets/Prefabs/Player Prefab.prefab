@@ -105,7 +105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1553515440171502}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.5, z: -0.12783833}
+  m_LocalPosition: {x: 0, y: -0.15, z: -0.12783833}
   m_LocalScale: {x: 2.3602283, y: 2.4782374, z: 2.3602283}
   m_Children: []
   m_Father: {fileID: 4653192246828568}
@@ -134,7 +134,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1833459653216350}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: -0.12783833}
+  m_LocalPosition: {x: 0, y: 0.13, z: -0.12783833}
   m_LocalScale: {x: 2.36024, y: 2.47824, z: 2.3602283}
   m_Children: []
   m_Father: {fileID: 4653192246828568}
@@ -171,7 +171,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -209,7 +208,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 0.05, y: 0.15}
   m_Direction: 0
 --- !u!95 &95798942931919810
 Animator:
