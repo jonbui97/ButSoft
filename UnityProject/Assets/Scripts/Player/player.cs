@@ -209,7 +209,7 @@ public class player : NetworkBehaviour
     /// </summary>
     private void handleMovement(float horizontal)
     {
-        if (myrigidBody.velocity.y < 0)
+        if (myrigidBody.velocity.y < -0.8)
         {
             myAnimator.SetBool("land", true);
         }
