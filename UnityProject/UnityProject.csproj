@@ -225,6 +225,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\FloatingText.cs" />
     <Compile Include="Assets\Materials\MainMenu\Scripts\ActiveStateToggler.cs" />
     <Compile Include="Assets\Materials\MainMenu\Scripts\ApplicationManager.cs" />
     <Compile Include="Assets\Materials\MainMenu\Scripts\ChangeColor.cs" />
@@ -274,6 +275,7 @@
     <Compile Include="Assets\Materials\MainMenu\TextMesh Pro\examples &amp; extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Other\GameObjects\Camera\FollowPlayer.cs" />
     <Compile Include="Assets\Other\GameObjects\DoubleJumpPickUp\DoubleJumpPickUp.cs" />
+    <Compile Include="Assets\RewindParticles.cs" />
     <Compile Include="Assets\Scripts\BlockBreaker\Ball.cs" />
     <Compile Include="Assets\Scripts\BlockBreaker\BlockBreakerLevelManager.cs" />
     <Compile Include="Assets\Scripts\BlockBreaker\Brick.cs" />

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TimeBody : MonoBehaviour
 {
     public float recordTime = 5f;
+    public GameObject particles;
 
     private player player;
 
@@ -73,6 +74,7 @@ public class TimeBody : MonoBehaviour
         if (positions.Count > 0)
         {
             transform.position = positions[0];
+            Instantiate(particles, transform.position, transform.rotation);
             positions.RemoveAt(0);
         }
         else
