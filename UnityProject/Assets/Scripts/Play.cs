@@ -21,10 +21,6 @@ public class Play : MonoBehaviour
 
     void ShowFloatingText()
     {
-        if (FloatingText.Count <= 0)
-        {
-            Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
-            FloatingText.Count++;
-        }
+        Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
     }
 }

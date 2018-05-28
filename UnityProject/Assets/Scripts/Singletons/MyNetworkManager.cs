@@ -72,11 +72,19 @@ namespace Singletons
         {
             Debug.Log(Time.timeSinceLevelLoad + " Client is connect to IP: " + conn.address);
             CancelInvoke();
+            
         }
 
         void PrintDots()
         {
             Debug.Log(".");
+        }
+
+        public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
+        {
+            base.OnServerAddPlayer(conn, playerControllerId);
+            GetComponent<NetworkManagerHUD>().enabled = false;
+
         }
 
         #endregion

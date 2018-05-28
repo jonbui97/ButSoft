@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class FloatingText : MonoBehaviour
 {
-    public static int Count = 0;
-
-
     public float DestroyTime = 3f;
     public Vector3 Offset = new Vector3(0, 0.01f, 0);
     // Use this for initialization
@@ -19,6 +16,5 @@ public class FloatingText : MonoBehaviour
     private IEnumerator ResetCount()
     {
         yield return new WaitForSeconds(DestroyTime);
-        Count--;
     }
 }
