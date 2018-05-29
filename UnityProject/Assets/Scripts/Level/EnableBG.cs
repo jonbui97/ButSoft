@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnableBG : MonoBehaviour {
 
-    public GameObject bg;
+    public GameObject forest_bg;
+    public GameObject cave_bg;
     public GameObject cam; // camera
 
     private bool enabled = false;
@@ -12,7 +13,7 @@ public class EnableBG : MonoBehaviour {
 
     private void Start()
     {
-        alpha = bg.GetComponent<SpriteRenderer>().color;
+        alpha = forest_bg.GetComponent<SpriteRenderer>().color;
         alpha.a = 0;
     }
 
@@ -21,7 +22,7 @@ public class EnableBG : MonoBehaviour {
         if (enabled && alpha.a < 1f)
         {
             alpha.a += 0.0001f;
-            bg.GetComponent<SpriteRenderer>().color = alpha;
+            forest_bg.GetComponent<SpriteRenderer>().color = alpha;
         }
     }
 
@@ -29,10 +30,11 @@ public class EnableBG : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
-            bg.transform.SetParent(cam.transform);
-            bg.GetComponent<SpriteRenderer>().color = alpha;
+            forest_bg.transform.SetParent(cam.transform);
+            forest_bg.GetComponent<SpriteRenderer>().color = alpha;
             enabled = true;
-            bg.SetActive(true);
+            cave_bg.SetActive(false);
+            forest_bg.SetActive(true);
         }
     }
 }
